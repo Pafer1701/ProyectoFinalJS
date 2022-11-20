@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./images/logo.ico">
+  <title>Book Store</title>
+  <style>
+    :root{
+        --white:#FFFFFF;
+        --black: #000000;
+        --ligth-white: #F7F7F7;
+        --blue: #002D85;
+        --orange: #FFBE2E;
+        --sm: 14px;
+        --md:16px;
+        --lg:18px;   
+    }
+    body{
+        font-family: 'Quicksand', sans-serif;
+        margin: 0;
+    }
+    .login{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+    .form-container{
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: 300px;
+    }
+    .logo{
+        width: 150px;
+        margin-top: 112px;
+        justify-self:center;
+        display: none;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        
+        
+    }
+    .form div{
+        display: flex;
+        flex-direction: column;
+    }
+    .label{
+        font-size: var(--sm);
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+    .input{
+        background-color: var(--ligth-white);
+        border: none;
+        border-radius: 8px;
+        height: 32px;
+        margin-bottom: 12px;
+        padding: 6px;
+        font-size: var(--md);
+        font-weight: 200;
+    }
+    .primary-button{
+        width: 100%;
+        height: 40px;
+        color: var(--white);
+        border: none;
+        background-color: var(--orange);
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: var(--md);
+        font-family: 'Quicksand', sans-serif;
+    }
+    .login-button{
+        margin-top: 12px;
+    }
+    .login-button:hover{
+        background-color: var(--white);
+        color: var(--orange);
+        border:1px solid var(--orange);
+    }
+    .a-login{
+        margin: 0 !important;
+    }
+    .form a{
+        text-align: center;
+        font-size: var(--sm);
+        color: var(--blue);
+        text-decoration: none;
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+    .second-button{
+        width: 100%;
+        height: 40px;
+        color: var(--orange);
+        border: 1px solid var(--orange);
+        background-color: var(--white);
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: var(--md);
+        font-family: 'Quicksand', sans-serif;
+    }
+    .signup-button{
+        margin-bottom: 24px;
+    }
+    .signup-button:hover{
+        background-color: var(--orange);
+        color: var(--white);
+    }
+    @media (max-width:420px) {
+        .logo{
+            display: block;
+        }
+        .form-container{
+            height: 100%;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+        
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <div class="form-container">
+      <img src="./images/logo.jpg" alt="logo" class="logo">
+
+      <form action="/" class="form">
+        <div>
+        <label for="email" class="label">Correo electrónico</label>
+        <input type="email" id="email" placeholder=" fernando@book.com" class="input input-email" required>
+
+        <label for="password" class="label">Contraseña</label>
+        <input type="password" id="new-password" placeholder=" *********" class="input input-password" required>
+        
+        <a href="./index.html" class="a-login"><input type="submit" value="Iniciar Sesión" class="primary-button login-button"></a>
+        <a href="/recuperar-contraseña.html">Olvidé mi contraseña</a>
+        </div>
+        <a href="./registrarse.html">
+        <input type="button" value="Registrarse" class="second-button signup-button"/>
+        </a>
+      </form>
+    </div>
+    <script>
+        const email = document.getElementById("email");
+        email.addEventListener("input", function (event) {
+        if (email.validity.typeMismatch) {
+            email.setCustomValidity("¡Se esperaba una dirección de correo electrónico!");
+        } else {
+            email.setCustomValidity("");
+        }
+        });    
+      </script>
+  </div>
+</body>
+</html>
